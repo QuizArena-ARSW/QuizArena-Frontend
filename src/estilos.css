@@ -183,7 +183,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 .enlace {
   background: none; border: 0; color: var(--violeta-300); cursor: pointer;
   font-weight: 600; text-decoration: underline; padding: 0; width: auto;
-  font-family: "Inter"; font-size: 14px;
+  font-family: "Inter", sans-serif; font-size: 14px;
 }
 .error {
   background: rgba(239, 68, 68, 0.14); color: #FCA5A5; padding: 10px 14px;
@@ -232,7 +232,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
   font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.75;
 }
 .codigo-sala .valor {
-  font-family: "Outfit"; font-weight: 800; font-size: 46px;
+  font-family: "Outfit", sans-serif; font-weight: 800; font-size: 46px;
   letter-spacing: 0.15em; margin-top: 4px;
 }
 
@@ -250,7 +250,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
   color: var(--texto-tenue); font-size: 13px; font-weight: 600; margin-bottom: 8px;
   text-transform: uppercase; letter-spacing: 0.05em;
 }
-.temporizador { color: var(--ambar); font-size: 20px; font-family: "Outfit"; text-shadow: 0 0 16px rgba(245, 158, 11, 0.5); }
+.temporizador { color: var(--ambar); font-size: 20px; font-family: "Outfit", sans-serif; text-shadow: 0 0 16px rgba(245, 158, 11, 0.5); }
 .enunciado { font-size: 22px; font-weight: 700; color: var(--texto-claro); margin: 12px 0 20px; line-height: 1.3; }
 .opciones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .opcion {
@@ -273,11 +273,11 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
   border-color: rgba(245, 158, 11, 0.4);
 }
 .marcador .pos {
-  font-family: "Outfit"; font-weight: 800; font-size: 18px;
+  font-family: "Outfit", sans-serif; font-weight: 800; font-size: 18px;
   color: var(--violeta-300); width: 28px;
 }
 .marcador .nombre { flex: 1; font-weight: 600; color: var(--texto-claro); }
-.marcador .pts { font-family: "Outfit"; font-weight: 800; color: var(--ambar); }
+.marcador .pts { font-family: "Outfit", sans-serif; font-weight: 800; color: var(--ambar); }
 @keyframes entra { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
 /* ---- Resumen de la partida (pregunta por pregunta) ---- */
@@ -291,7 +291,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 .resumen-preguntas li.incorrecta { border-left-color: #ef4444; }
 .resumen-preguntas li.sin-responder { border-left-color: var(--texto-tenue); }
 .resumen-numero {
-  font-family: "Outfit"; font-weight: 800; font-size: 15px;
+  font-family: "Outfit", sans-serif; font-weight: 800; font-size: 15px;
   color: var(--violeta-300); flex-shrink: 0; width: 20px;
 }
 .resumen-enunciado { font-weight: 600; color: var(--texto-claro); margin-bottom: 4px; }
@@ -336,7 +336,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
   width: 100%; max-width: 760px; display: flex; justify-content: space-between;
   align-items: center; color: #fff; margin-bottom: 16px;
 }
-.barra .sala-cod { font-family: "Outfit"; font-weight: 800; letter-spacing: 0.1em; font-size: 18px; }
+.barra .sala-cod { font-family: "Outfit", sans-serif; font-weight: 800; letter-spacing: 0.1em; font-size: 18px; }
 .barra .usuario { font-size: 14px; opacity: 0.85; }
 
 /* ---- Navegacion (Encabezado) ---- */
@@ -389,7 +389,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
   color: var(--texto-claro); text-transform: uppercase; letter-spacing: -0.01em;
 }
 .landing-titulo-trazo {
-  color: transparent; -webkit-text-stroke: 2px var(--ambar); text-stroke: 2px var(--ambar);
+  color: transparent; -webkit-text-stroke: 2px var(--ambar);
 }
 .landing-titulo-degradado {
   background: linear-gradient(135deg, var(--ambar), #FB7185);
@@ -412,7 +412,7 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 }
 .landing-stat + .landing-stat { border-left: 1px solid var(--borde-sutil); }
 .landing-stat-valor {
-  font-family: "Outfit"; font-weight: 800; font-size: 30px; color: var(--ambar);
+  font-family: "Outfit", sans-serif; font-weight: 800; font-size: 30px; color: var(--ambar);
   text-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
 }
 .landing-stat-label {

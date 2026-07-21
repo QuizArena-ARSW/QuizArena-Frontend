@@ -11,7 +11,7 @@ FROM node:20-alpine AS build
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --ignore-scripts
 
 # URLs del backend (se pasan al construir la imagen)
 ARG VITE_API_URL=http://localhost:8080
