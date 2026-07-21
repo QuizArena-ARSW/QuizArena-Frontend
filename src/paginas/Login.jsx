@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { login, registro } from "../api";
 import { guardarSesion } from "../auth";
+import Logo from "../componentes/Logo";
 
 export default function Login() {
   const navegar = useNavigate();
-  const [modo, setModo] = useState("login"); // "login" | "registro"
+  const location = useLocation();
+  const [modo, setModo] = useState(location.state?.modo === "registro" ? "registro" : "login");
   const [correo, setCorreo] = useState("");
   const [contrasena, setContrasena] = useState("");
   const [nombre, setNombre] = useState("");
@@ -17,13 +19,19 @@ export default function Login() {
     setError("");
     setCargando(true);
     try {
-      const resp = modo === "login"
-        ? await login(correo, contrasena)
-        : await registro(correo, contrasena, nombre);
+      if (modo === "registro") {
+        await registro(correo, contrasena, nombre);
+        navegar("/verificar", { state: { correo } });
+        return;
+      }
+      const resp = await login(correo, contrasena);
       guardarSesion(resp.token, resp.nombre, resp.correo);
       navegar("/lobby");
     } catch (err) {
       setError(err.message);
+      if (err.message.includes("verificar tu correo")) {
+        navegar("/verificar", { state: { correo } });
+      }
     } finally {
       setCargando(false);
     }
@@ -31,7 +39,9 @@ export default function Login() {
 
   return (
     <div className="pantalla">
-      <div className="marca">Quiz<b>Arena</b></div>
+      <Link to="/" className="marca-logo">
+        <Logo size={130} />
+      </Link>
       <div className="tarjeta">
         <h1 className="titulo">{modo === "login" ? "Entrar" : "Crear cuenta"}</h1>
         <p className="subtitulo">
@@ -55,7 +65,18 @@ export default function Login() {
           </div>
           <div className="campo">
             <label>Contraseña</label>
-            <input type="password" value={contrasena} onChange={(e) => setContrasena(e.target.value)} required />
+            <input
+              type="password"
+              value={contrasena}
+              onChange={(e) => setContrasena(e.target.value)}
+              required
+              minLength={modo === "registro" ? 6 : undefined}
+              pattern={modo === "registro" ? ".*[^a-zA-Z0-9].*" : undefined}
+              title={modo === "registro" ? "Debe tener al menos 6 caracteres e incluir un caracter especial" : undefined}
+            />
+            {modo === "registro" && (
+              <p className="ayuda">Mínimo 6 caracteres, incluyendo al menos un carácter especial (ej. ! @ # $ %).</p>
+            )}
           </div>
           <button className="btn-primario" disabled={cargando}>
             {cargando ? "Un momento..." : modo === "login" ? "Entrar" : "Crear cuenta"}

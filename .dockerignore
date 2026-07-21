@@ -1,0 +1,6 @@
+# Renombrar a .dockerignore en la raiz del frontend
+node_modules/
+dist/
+.git/
+.gitignore
+*.log
